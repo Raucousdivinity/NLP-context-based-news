@@ -5,8 +5,10 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-nltk.download("punkt")
-nltk.download("stopwords")
+# Fix for LookupError in Colab or fresh environments
+nltk.data.path.clear()
+nltk.download("punkt", force=True)
+nltk.download("stopwords", force=True)
 
 NEWS_API_KEY = "pub_7137728e5eaff98c80b7c2e267028d72e0a98"
 NEWS_API_URL = "https://newsdata.io/api/1/news"
